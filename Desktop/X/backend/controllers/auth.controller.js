@@ -121,3 +121,15 @@ export const logout = async (req, res) => {
     });
   }
 };
+
+export const getMe = async (req, res) => {
+    try{
+        const user = await User.findById(req.user._id).select("-password");
+        res.status(200).json(user);  
+    }catch(e){
+        console.log("Error in getMe controller", e.message);
+        res.status(500).json({
+            error: "Internal server error",
+        });
+    }
+};
