@@ -1,0 +1,173 @@
+[2024-03-05 09:12:30.924]: entering -- org.netbeans.installer.Installer.main():61
+[2024-03-05 09:12:30.924]: initializing the installer engine
+[2024-03-05 09:12:30.924]:     entering -- org.netbeans.installer.Installer.<init>():96
+[2024-03-05 09:12:30.924]:     ... initializing ErrorHandler
+[2024-03-05 09:12:30.940]:     ... end of ErrorHandler initialization
+[2024-03-05 09:12:30.942]:     exiting -- org.netbeans.installer.Installer.<init>():96
+[2024-03-05 09:12:30.942]:     entering -- org.netbeans.installer.Installer.<init>():97
+[2024-03-05 09:12:30.942]:     dumping target system information
+[2024-03-05 09:12:30.942]:         system properties:
+[2024-03-05 09:12:30.942]:             file.encoding => UTF-8
+[2024-03-05 09:12:30.942]:             file.separator => \
+[2024-03-05 09:12:30.942]:             java.class.path => C:\Users\ftt\AppData\Local\Temp\\NBI88546.tmp\bundle.jar
+[2024-03-05 09:12:30.942]:             java.class.version => 65.0
+[2024-03-05 09:12:30.942]:             java.home => C:\Program Files\Java\jdk-21
+[2024-03-05 09:12:30.942]:             java.io.tmpdir => C:\Users\ftt\AppData\Local\Temp\
+[2024-03-05 09:12:30.942]:             java.library.path => C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\Java\jdk-21;C:\Users\ftt\AppData\Local\Programs\Microsoft VS Code\bin;.
+[2024-03-05 09:12:30.942]:             java.runtime.name => Java(TM) SE Runtime Environment
+[2024-03-05 09:12:30.942]:             java.runtime.version => 21.0.2+13-LTS-58
+[2024-03-05 09:12:30.942]:             java.specification.name => Java Platform API Specification
+[2024-03-05 09:12:30.942]:             java.specification.vendor => Oracle Corporation
+[2024-03-05 09:12:30.942]:             java.specification.version => 21
+[2024-03-05 09:12:30.942]:             java.vendor => Oracle Corporation
+[2024-03-05 09:12:30.942]:             java.vendor.url => https://java.oracle.com/
+[2024-03-05 09:12:30.942]:             java.vendor.url.bug => https://bugreport.java.com/bugreport/
+[2024-03-05 09:12:30.942]:             java.version => 21.0.2
+[2024-03-05 09:12:30.942]:             java.version.date => 2024-01-16
+[2024-03-05 09:12:30.942]:             java.vm.compressedOopsMode => 32-bit
+[2024-03-05 09:12:30.942]:             java.vm.info => mixed mode, sharing
+[2024-03-05 09:12:30.942]:             java.vm.name => Java HotSpot(TM) 64-Bit Server VM
+[2024-03-05 09:12:30.942]:             java.vm.specification.name => Java Virtual Machine Specification
+[2024-03-05 09:12:30.942]:             java.vm.specification.vendor => Oracle Corporation
+[2024-03-05 09:12:30.946]:             java.vm.specification.version => 21
+[2024-03-05 09:12:30.946]:             java.vm.vendor => Oracle Corporation
+[2024-03-05 09:12:30.946]:             java.vm.version => 21.0.2+13-LTS-58
+[2024-03-05 09:12:30.946]:             jdk.debug => release
+[2024-03-05 09:12:30.946]:             line.separator => 
+[2024-03-05 09:12:30.946]:             native.encoding => Cp1252
+[2024-03-05 09:12:30.946]:             netbeans.default_cachedir_root => C:\Users\ftt\AppData\Local\NetBeans\Cache
+[2024-03-05 09:12:30.947]:             netbeans.default_userdir_root => C:\Users\ftt\AppData\Roaming\NetBeans
+[2024-03-05 09:12:30.947]:             os.arch => amd64
+[2024-03-05 09:12:30.947]:             os.name => Windows 11
+[2024-03-05 09:12:30.947]:             os.version => 10.0
+[2024-03-05 09:12:30.947]:             path.separator => ;
+[2024-03-05 09:12:30.947]:             stderr.encoding => Cp1252
+[2024-03-05 09:12:30.947]:             stdout.encoding => Cp1252
+[2024-03-05 09:12:30.947]:             sun.arch.data.model => 64
+[2024-03-05 09:12:30.947]:             sun.boot.library.path => C:\Program Files\Java\jdk-21\bin
+[2024-03-05 09:12:30.947]:             sun.cpu.endian => little
+[2024-03-05 09:12:30.947]:             sun.cpu.isalist => amd64
+[2024-03-05 09:12:30.947]:             sun.io.unicode.encoding => UnicodeLittle
+[2024-03-05 09:12:30.947]:             sun.java.command => org.netbeans.installer.Installer
+[2024-03-05 09:12:30.947]:             sun.java.launcher => SUN_STANDARD
+[2024-03-05 09:12:30.947]:             sun.jnu.encoding => Cp1252
+[2024-03-05 09:12:30.948]:             sun.management.compiler => HotSpot 64-Bit Tiered Compilers
+[2024-03-05 09:12:30.948]:             sun.os.patch.level => 
+[2024-03-05 09:12:30.948]:             user.country => US
+[2024-03-05 09:12:30.948]:             user.dir => C:\Users\ftt\Downloads
+[2024-03-05 09:12:30.948]:             user.home => C:\Users\ftt
+[2024-03-05 09:12:30.948]:             user.language => en
+[2024-03-05 09:12:30.948]:             user.name => Rahul
+[2024-03-05 09:12:30.948]:             user.script => 
+[2024-03-05 09:12:30.948]:             user.timezone => Asia/Calcutta
+[2024-03-05 09:12:30.948]:             user.variant => 
+[2024-03-05 09:12:30.948]:     ... end of target system information
+[2024-03-05 09:12:30.948]:     exiting -- org.netbeans.installer.Installer.<init>():97
+[2024-03-05 09:12:30.989]:     loading jni library
+[2024-03-05 09:12:30.990]:         library resource path: native/jnilib/windows/windows-x64.dll
+[2024-03-05 09:12:31.093]:         library file path: C:\Users\ftt\AppData\Local\Temp\nbi-5835616048232106015.tmp
+[2024-03-05 09:12:31.103]:         ... successfully loaded the library
+[2024-03-05 09:12:31.107]:     entering -- org.netbeans.installer.Installer.<init>():102
+[2024-03-05 09:12:31.107]:     parsing command-line arguments
+[2024-03-05 09:12:31.110]:         ... no command line arguments were specified
+[2024-03-05 09:12:31.110]:     ... finished parsing command line arguments
+[2024-03-05 09:12:31.110]:     exiting -- org.netbeans.installer.Installer.<init>():102
+[2024-03-05 09:12:31.110]:     entering -- org.netbeans.installer.Installer.<init>():103
+[2024-03-05 09:12:31.110]:     loading engine properties
+[2024-03-05 09:12:31.110]:         loading engine properties
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.default => 600
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.gtk => 704
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.head.right.image => resource:org/netbeans/installer/wizard/wizard-description-background.png
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.nimbus => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.win.xp => 450
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.nimbus => 512
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.title.prefix => Apache NetBeans IDE Installer
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.nimbus => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.win.xp => 600
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.jdk5.resource => org/netbeans/installer/product/components/netbeans-license-jdk5.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.win.classic => 442
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.jtb.resource => org/netbeans/installer/product/components/netbeans-license-jtb.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.motif => 470
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.default => 600
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.aqua => 480
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.win.xp => 600
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.jdk6.resource => org/netbeans/installer/product/components/netbeans-license-jdk6.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.aqua => 480
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.default => 500
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.mysql.resource => org/netbeans/installer/product/components/netbeans-license-mysql.txt
+[2024-03-05 09:12:31.113]:             loading nbi.product.suggest.install => true
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.icon => resource:org/netbeans/installer/wizard/wizard-icon.png
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.aqua => 640
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.motif => 470
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.gtk => 528
+[2024-03-05 09:12:31.113]:             loading nbi.product.remove.corrupted.products.silently => true
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.motif => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.win.classic => 588
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.welcome.left.bottom.image => resource:org/netbeans/installer/wizard/components/panels/netbeans/resources/welcome-left-bottom.png
+[2024-03-05 09:12:31.113]:             loading nbi.macosx.application.directory.name => NetBeans IDE Installer
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.resource => org/netbeans/installer/product/components/netbeans-license.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.gtk => 528
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.metal => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.motif => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.metal => 470
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.gtk => 704
+[2024-03-05 09:12:31.113]:             loading nbi.junit.license.resource => org/netbeans/installer/product/components/junit-license.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.metal => 624
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.default => 500
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.win.classic => 442
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.win.xp => 450
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.height.nimbus => 512
+[2024-03-05 09:12:31.113]:             loading nbi.overall.license.javafx.resource => org/netbeans/installer/product/components/netbeans-license-javafx.txt
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.title.pattern => {0}
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.width.win.classic => 588
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.height.metal => 470
+[2024-03-05 09:12:31.113]:             loading nbi.wizard.ui.swing.frame.minimum.width.aqua => 640
+[2024-03-05 09:12:31.113]:     ... finished loading engine properties
+[2024-03-05 09:12:31.117]:     exiting -- org.netbeans.installer.Installer.<init>():103
+[2024-03-05 09:12:31.117]:     initializing the local directory
+[2024-03-05 09:12:31.117]:         ... custom local directory was not specified, using the default
+[2024-03-05 09:12:31.117]:         ... local directory: C:\Users\ftt\.nbi
+[2024-03-05 09:12:31.117]:     ... finished initializing local directory
+[2024-03-05 09:12:31.147]:     entering -- org.netbeans.installer.Installer.<init>():109
+[2024-03-05 09:12:31.147]:     ... initializing DownloadManager
+[2024-03-05 09:12:31.147]:         file not exist, queue is empty!
+[2024-03-05 09:12:31.157]:     ... end of initializing DownloadManager
+[2024-03-05 09:12:31.157]:     exiting -- org.netbeans.installer.Installer.<init>():109
+[2024-03-05 09:12:31.157]:     entering -- org.netbeans.installer.Installer.<init>():110
+[2024-03-05 09:12:31.161]:     ... initializing Registry
+[2024-03-05 09:12:31.163]:     ... end of initializing ErrorHandler
+[2024-03-05 09:12:31.163]:     exiting -- org.netbeans.installer.Installer.<init>():110
+[2024-03-05 09:12:31.163]:     entering -- org.netbeans.installer.Installer.<init>():111
+[2024-03-05 09:12:31.163]:     ... initializing Wizard
+[2024-03-05 09:12:31.433]:         ... loading registry from resource:data/registry.xml
+[2024-03-05 09:12:31.636]:         entering -- org.netbeans.installer.product.Registry.loadProductRegistry():982
+[2024-03-05 09:12:31.636]:         validating previous installations
+[2024-03-05 09:12:31.636]:         ... validating installations finished
+[2024-03-05 09:12:31.636]:         exiting -- org.netbeans.installer.product.Registry.loadProductRegistry():982
+[2024-03-05 09:12:31.648]:         Can`t load message in bundle org.netbeans.installer.wizard.components.panels.netbeans.Bundle for key NPrISP.installation.folders using [jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e] classloader
+[2024-03-05 09:12:31.673]:     ... end of initializing Wizard
+[2024-03-05 09:12:31.673]:     exiting -- org.netbeans.installer.Installer.<init>():111
+[2024-03-05 09:12:31.673]:     creating lock file
+[2024-03-05 09:12:31.673]:         ... lock file already exists at C:\Users\ftt\.nbi\.nbilock
+[2024-03-05 09:12:31.673]:         ... to skip lock file check run installer with --ignore-lock argument
+[2024-03-05 09:12:31.678]:         ... initializing look and feel
+[2024-03-05 09:12:31.678]:             ... custom look and feel class name was not specified, using system default
+[2024-03-05 09:12:31.773]:             ... class name: com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+[2024-03-05 09:12:31.773]:             ... get installed L&Fs
+[2024-03-05 09:12:31.844]:             ... set specified L&F
+[2024-03-05 09:12:31.908]:             ... check headless
+[2024-03-05 09:12:31.908]:             ... creating JFileChooser object to check possible issues with UI
+[2024-03-05 09:12:33.370]:             ... getting default Toolkit to check possible issues with UI
+[2024-03-05 09:12:33.372]:             ... creating JProgressBar object to check possible issues with UI
+[2024-03-05 09:12:33.382]:             ... all UI checks done
+[2024-03-05 09:12:33.382]:             ... L&F is set
+[2024-03-05 09:12:33.384]:         ... initializing L&F finished
+[2024-03-05 09:12:33.385]:         ... showing Yes/No dialog
+[2024-03-05 09:12:33.388]:             title: NetBeans Installer lock file exists
+[2024-03-05 09:12:33.389]:             message: The installer lock file exists at C:\Users\ftt\.nbi\.nbilock
+[2024-03-05 09:12:33.389]:             
+[2024-03-05 09:12:33.389]:             It means that either another instance of the installer is already running or the previous installation was not finished correctly.
+[2024-03-05 09:12:33.389]:             It is not recommended that you run multiple instances at the same time since it can result in installer data corruption.
+[2024-03-05 09:12:33.389]:             
+[2024-03-05 09:12:33.389]:             If you are sure that no other instance is running at the moment, click "Yes" to proceed otherwise click "No" to exit the installer.
+[2024-03-05 09:12:47.291]:         ... dialog closed, choice : no

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- For PDE build, remove "ws" and "arch" -->
+<feature
+      id="org.eclipse.tracecompass.lttng2.kernel"
+      label="%featureName"
+      version="9.2.0.202311300917"
+      provider-name="%featureProvider">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.tracecompass.lttng2.control"
+         version="9.2.0.202311300917"
+         name="Linux Tracing Toolkit next generation (LTTng)"/>
+
+   <includes
+         id="org.eclipse.tracecompass.tmf.ctf"
+         version="9.2.0.202311300917"
+         name="CTF Support for TMF"/>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.tracecompass.ctf.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.tracecompass.tmf.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.tracecompass.tmf.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.tracecompass.lttng2.control.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.tracecompass.lttng2.control.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.tracecompass.lttng2.kernel.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.tracecompass.analysis.lami.core"
+         download-size="119"
+         install-size="244"
+         version="1.2.1.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.analysis.lami.ui"
+         download-size="75"
+         install-size="166"
+         version="1.2.0.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.analysis.os.linux.core"
+         download-size="363"
+         install-size="797"
+         version="8.2.0.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.analysis.os.linux.ui"
+         download-size="172"
+         install-size="370"
+         version="4.1.2.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.lttng2.kernel.core"
+         download-size="92"
+         install-size="203"
+         version="3.1.1.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.lttng2.kernel.ui"
+         download-size="21"
+         install-size="40"
+         version="2.1.0.202311300917"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.doc.user"
+         download-size="11725"
+         install-size="12956"
+         version="9.2.0.202311300917"/>
+
+   <plugin
+         id="org.eclipse.tracecompass.lttng2.common.core"
+         download-size="16"
+         install-size="26"
+         version="1.2.0.202311300917"
+         unpack="false"/>
+
+</feature>
