@@ -27,55 +27,59 @@ export const signup = async (req, res) => {
       });
     }
 
-    if(password.length<8){
-        res.status(400).json({
-            message: "Password must be at least 8 characters long",
-        });
+    if (password.length < 8) {
+      res.status(400).json({
+        message: "Password must be at least 8 characters long",
+      });
     }
 
-     // Hash password for better security
+    // Hash password for better security
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-        fullName,
-        username,
-        email,
-        password: hashedPassword,
-    })
+      fullName,
+      username,
+      email,
+      password: hashedPassword,
+    });
 
-    if(newUser){
-        generateTokenAndCookie(newUser._id, res);
-        await newUser.save();
-        res.status(201).json({
-            _id: newUser._id,
-            fullName: newUser.fullName,
-            username: newUser.username,
-            email: newUser.email,
-            followers: newUser.followers,
-            following: newUser.following,
-            profilePicture: newUser.profilePicture,
-            coverPicture: newUser.coverPicture,
-        });
-    }else{
-        res.status(500).json({
-            message: "Failed to create user",
-        });
-}  } catch (e) {
-    console.log("Error in signup controller",e.message);
+    if (newUser) {
+      generateTokenAndCookie(newUser._id, res);
+      await newUser.save();
+      res.status(201).json({
+        _id: newUser._id,
+        fullName: newUser.fullName,
+        username: newUser.username,
+        email: newUser.email,
+        followers: newUser.followers,
+        following: newUser.following,
+        profilePicture: newUser.profilePicture,
+        coverPicture: newUser.coverPicture,
+      });
+    } else {
+      res.status(500).json({
+        message: "Failed to create user",
+      });
+    }
+  } catch (e) {
+    console.log("Error in signup controller", e.message);
     res.status(500).json({
-        error: "Error in signup controller",
-    })
+      error: "Error in signup controller",
+    });
   }
 };
 
 export const login = async (req, res) => {
-  try{
+  try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    const isPasswordValid = await bcrypt.compare(password, user?.password || "");
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      user?.password || ""
+    );
 
-    if (!user ||!isPasswordValid) {
+    if (!user || !isPasswordValid) {
       return res.status(401).json({
         message: "Invalid username or password",
       });
@@ -84,26 +88,36 @@ export const login = async (req, res) => {
     generateTokenAndCookie(user._id, res);
 
     res.json({
-        _id: user._id,
-        fullName: user.fullName,
-        username: user.username,
-        email: user.email,
-        followers: user.followers,
-        following: user.following,
-        profilePicture: user.profilePicture,
-        coverPicture: user.coverPicture,
+      _id: user._id,
+      fullName: user.fullName,
+      username: user.username,
+      email: user.email,
+      followers: user.followers,
+      following: user.following,
+      profilePicture: user.profilePicture,
+      coverPicture: user.coverPicture,
     });
-
-  }catch(e){
-    console.log("Error in signup controller",e.message);
+  } catch (e) {
+    console.log("Error in signup controller", e.message);
     res.status(500).json({
-        error: "Error in signup controller",
-    })
+      error: "Internal server error",
+    });
   }
 };
 
 export const logout = async (req, res) => {
-  res.json({
-    data: "logout EndPonint",
-  });
+  try {
+    res.cookie("token", "", {
+      httpOnly: true,
+      expires: new Date(0),
+    });
+    res.status(200).json({
+      message: "Logged out successfully",
+    });
+  } catch (e) {
+    console.log("Error in Logout controller", e.message);
+    res.status(500).json({
+      error: "Internal server error",
+    });
+  }
 };
