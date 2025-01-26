@@ -5,9 +5,9 @@ export const generateTokenAndCookie = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "10d",
   });
-  res.cookie("token", token, {
-    expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000), // 10 days
-    httpOnly: true, // to prevet cross-site request forgery/attacks (xss protection)
+  res.cookie("jwt", token, {
+    expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000), 
+    httpOnly: true, 
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production" ? true : false,
   });

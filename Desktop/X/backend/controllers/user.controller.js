@@ -1,4 +1,4 @@
-import User from "../models/user";
+import User from "../models/user.js";
 
 export const getUserProfile = async (req, res, next) => {
     const {usernam}=req.params;
@@ -21,7 +21,7 @@ export const followUnfollow = async (req, res, next) => {
         const userTomodify = await User.findById(id);
         const currentUser = await User.findById(req.user._id);
 
-        if(id===req.user._id){
+        if(id===req.user._id.toString()){
             return res.status(400).json({message: "You cannot follow yourself"});
         }
         if(!userTomodify || !currentUser){
