@@ -7,7 +7,7 @@ export const getNotifications = async (req, res) => {
       path: "from",
       select: "username profilePicture",
     });
-    await Notification.uppdateMany({ to: userId }, { read: true });
+    await Notification.updateMany({ to: userId }, { read: true });
     res.status(200).json(notifications);
   } catch (error) {
     console.log("Error in getNotifications controller", error.message);
