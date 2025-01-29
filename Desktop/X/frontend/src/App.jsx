@@ -1,18 +1,19 @@
 import { useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Signup from "./pages/auth/signup/signup";
+import Login from "./pages/auth/login/login";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <button className="btn">Button</button>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-accent">Accent</button>
-      <button className="btn btn-ghost">Ghost</button>
-      <button className="btn btn-link">Link</button>
-    </>
+    <div className="flex max-w-6xl mx-auto">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
   );
 }
 
