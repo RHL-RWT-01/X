@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Signup from "./pages/auth/signup/signup";
-import Login from "./pages/auth/login/login";
+import Signup from "./pages/auth/signup/Signup";
+import Login from "./pages/auth/login/Login";
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="flex max-w-6xl mx-auto">
