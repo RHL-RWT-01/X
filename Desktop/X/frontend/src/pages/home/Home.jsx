@@ -1,9 +1,8 @@
 import { useState } from "react";
+import CreatePost from "./CreatePost";
+import Posts from "../../components/common/Posts";
 
-// import Posts from "../../components/common/Posts";
-// import CreatePost from "./CreatePost";
-
-function Home(){
+function Home() {
   const [feedType, setFeedType] = useState("forYou");
 
   return (
@@ -41,5 +40,5 @@ function Home(){
       </div>
     </>
   );
-};
+}
 export default Home;
