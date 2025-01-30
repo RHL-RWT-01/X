@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-// import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
 import { USERS_FOR_RIGHT_PANEL } from "../../utils/db/dummy";
+import RightPanelSkeleton from "../skeletons/RightPanelSkeleton";
 
 function RightPanel() {
   const isLoading = false;
@@ -11,14 +11,14 @@ function RightPanel() {
         <p className="font-bold">Who to follow</p>
         <div className="flex flex-col gap-4">
           {/* item */}
-          {/* {isLoading && (
+          {isLoading && (
             <>
               <RightPanelSkeleton />
               <RightPanelSkeleton />
               <RightPanelSkeleton />
               <RightPanelSkeleton />
             </>
-          )} */}
+          )}
           {!isLoading &&
             USERS_FOR_RIGHT_PANEL?.map((user) => (
               <Link
