@@ -1,8 +1,8 @@
 export const POSTS = [
 	{
 		_id: "1",
-		text: "rtificial Intelligence 😍",
-		img: "/posts/post1.png",
+		text: "Artificial Intelligence 😍",
+		img: "/posts/p1.png",
 		user: {
 			username: "johndoe",
 			profileImg: "/avatars/boy1.png",
@@ -45,7 +45,7 @@ export const POSTS = [
 	{
 		_id: "3",
 		text: "Futuristic Methods in AI 🚀",
-		img: "/posts/post2.png",
+		img: "/posts/p2.png",
 		user: {
 			username: "johndoe",
 			profileImg: "/avatars/boy3.png",
@@ -57,7 +57,7 @@ export const POSTS = [
 	{
 		_id: "4",
 		text: "Learning Something Interesting🤔",
-		img: "/posts/post3.png",
+		img: "/posts/p3.png",
 		user: {
 			username: "johndoe",
 			profileImg: "/avatars/boy3.png",
