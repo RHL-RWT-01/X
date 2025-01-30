@@ -12,7 +12,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-function Profile(){
+function Profile() {
   const [coverImg, setCoverImg] = useState(null);
   const [profileImg, setProfileImg] = useState(null);
   const [feedType, setFeedType] = useState("posts");
@@ -213,5 +213,5 @@ function Profile(){
       </div>
     </>
   );
-};
+}
 export default Profile;
