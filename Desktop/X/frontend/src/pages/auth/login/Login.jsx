@@ -13,7 +13,12 @@ function Login() {
     password: "",
   });
 
-  const { mutate, isError, isPending, error } = useMutation({
+  const {
+    mutate: loginMutation,
+    isError,
+    isPending,
+    error,
+  } = useMutation({
     mutationFn: async ({ username, password }) => {
       try {
         const res = await fetch("/api/auth/login", {
@@ -39,7 +44,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutate(formData);
+    loginMutation(formData);
   };
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -78,9 +83,9 @@ function Login() {
             />
           </label>
           <button className="btn rounded-sm btn-primary text-white">
-            Login
+            {isPending ? "Loading..." : "Login"}
           </button>
-          {isError && <p className="text-red-500">Something went wrong</p>}
+          {isError && <p className="text-red-500">{error.message}</p>}
         </form>
         <div className="flex flex-col gap-2 mt-4">
           <p className="text-white text-lg">{"Don't"} have an account?</p>
