@@ -25,13 +25,13 @@ function Profile() {
 
   const user = {
     _id: "1",
-    fullName: "John Doe",
-    username: "johndoe",
+    fullName: "Rahul Rawat",
+    username: "Rhl_Rwt_01",
     profileImg: "/avatars/boy2.png",
     coverImg: "/cover.png",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    link: "https://youtube.com/@asaprogrammer_",
-    following: ["1", "2", "3"],
+    bio: "Software Developer | AI Enthusiast ",
+    link: "https://github.com/RHL-RWT-01",
+    following: ["1", "2", "3","4","5","6","7","8","9"],
     followers: ["1", "2", "3"],
   };
 
@@ -153,12 +153,12 @@ function Profile() {
                       <>
                         <FaLink className="w-3 h-3 text-slate-500" />
                         <a
-                          href="https://youtube.com/@asaprogrammer_"
+                          href="https://github.com/RHL-RWT-01"
                           target="_blank"
                           rel="noreferrer"
                           className="text-sm text-blue-500 hover:underline"
                         >
-                          youtube.com/@asaprogrammer_
+                          github
                         </a>
                       </>
                     </div>

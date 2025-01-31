@@ -4,9 +4,9 @@ export const POSTS = [
 		text: "Artificial Intelligence 😍",
 		img: "/posts/p1.png",
 		user: {
-			username: "johndoe",
+			username: "rhl_rwt_01",
 			profileImg: "/avatars/boy1.png",
-			fullName: "John Doe",
+			fullName: "Rahul Rawat",
 		},
 		comments: [
 			{
@@ -25,9 +25,9 @@ export const POSTS = [
 		_id: "2",
 		text: "Should I start ML? 😊",
 		user: {
-			username: "johndoe",
+			username: "rahul",
 			profileImg: "/avatars/boy2.png",
-			fullName: "John Doe",
+			fullName: "Rahul",
 		},
 		comments: [
 			{
@@ -91,7 +91,7 @@ export const POSTS = [
 export const USERS_FOR_RIGHT_PANEL = [
 	{
 		_id: "1",
-		fullName: "John Doe",
+		fullName: "John",
 		username: "johndoe",
 		profileImg: "/avatars/boy2.png",
 	},

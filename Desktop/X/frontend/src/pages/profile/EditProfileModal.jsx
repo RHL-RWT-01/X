@@ -62,6 +62,7 @@ const EditProfileModal = () => {
                 name="email"
                 onChange={handleInputChange}
               />
+
               <textarea
                 placeholder="Bio"
                 className="flex-1 input border border-gray-700 rounded p-2 input-md"
