@@ -8,18 +8,13 @@ import { BiLogOut } from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 function Sidebar() {
-  const {
-    mutate,
-    isPending,
-    isError,
-    error,
-  } = useMutation({
+  const { mutate:logout, isPending, isError, error } = useMutation({
     mutationFn: async () => {
       try {
         const res = await fetch("/api/auth/logout", {
           method: "POST",
         });
-        const data = await response.json();
+        const data = await res.json();
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong");
         }
@@ -94,8 +89,8 @@ function Sidebar() {
               <BiLogOut
                 className="w-5 h-5 cursor-pointer"
                 onClick={(e) => {
-                  e.preventDefault();
-                  mutate();
+                  e.preventDefault(),
+                  logout();
                 }}
               />
             </div>

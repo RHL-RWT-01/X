@@ -5,7 +5,10 @@ dotenv.config();
 
 export const protectedRoute = async (req, res, next) => {
   try {
-    const token = req.headers.jwt;
+    const token = req.cookies.jwt;
+    // console.log(token);
+    // console.log("Token received");
+    // console.log(process.env.JWT_SECRET);
     if (!token) {
       return res.status(401).json({ error: "Unauthorized: No Token Provided" });
     }
