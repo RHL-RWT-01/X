@@ -22,7 +22,7 @@ function App() {
           credentials: "include",
         });
         const data = await res.json();
-        if(data.error) return null;
+        if (data.error) return null;
         if (!res.ok) throw new Error(data.message || "Something went wrong .");
         console.log(data);
         return data;
@@ -31,7 +31,7 @@ function App() {
         throw new Error(error.message);
       }
     },
-    retry:false,
+    retry: false,
   });
   if (isLoading) {
     return (
@@ -42,7 +42,7 @@ function App() {
   }
   return (
     <div className="flex max-w-6xl mx-auto">
-    {authenticatedUser && <Sidebar />}
+      {authenticatedUser && <Sidebar />}
       <Routes>
         <Route
           path="/"
