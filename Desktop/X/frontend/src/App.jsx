@@ -10,12 +10,7 @@ import RightPanel from "./components/common/RightPanel";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./components/common/LoadingSpinner";
 function App() {
-  const {
-    data: authenticatedUser,
-    isLoading,
-    error,
-    isError,
-  } = useQuery({
+  const { data: authenticatedUser, isLoading } = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
       try {
@@ -27,6 +22,7 @@ function App() {
           credentials: "include",
         });
         const data = await res.json();
+        if(data.error) return null;
         if (!res.ok) throw new Error(data.message || "Something went wrong .");
         console.log(data);
         return data;
@@ -35,6 +31,7 @@ function App() {
         throw new Error(error.message);
       }
     },
+    retry:false,
   });
   if (isLoading) {
     return (
@@ -45,7 +42,7 @@ function App() {
   }
   return (
     <div className="flex max-w-6xl mx-auto">
-      <Sidebar />
+    {authenticatedUser && <Sidebar />}
       <Routes>
         <Route
           path="/"
@@ -57,20 +54,20 @@ function App() {
         />
         <Route
           path="/signup"
-          element={!authenticatedUser ? <Signup /> : <Navigate to="login" />}
+          element={!authenticatedUser ? <Signup /> : <Navigate to="/login" />}
         />
         <Route
           path="/notifications"
           element={
-            !authenticatedUser ? <Notification /> : <Navigate to="login" />
+            authenticatedUser ? <Notification /> : <Navigate to="/login" />
           }
         />
         <Route
           path="/profile/:username"
-          element={!authenticatedUser ? <Profile /> : <Navigate to="login" />}
+          element={authenticatedUser ? <Profile /> : <Navigate to="/login" />}
         />
       </Routes>
-      <RightPanel />
+      {authenticatedUser && <RightPanel />}
       <Toaster />
     </div>
   );
