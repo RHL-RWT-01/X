@@ -5,13 +5,15 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import  LoadingSpinner  from "./LoadingSpinner";
+import LoadingSpinner from "./LoadingSpinner";
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
+
   const { data: authenticatedUser } = useQuery({ queryKey: ["authUser"] });
-  const { mutate: deletePost,isPending} = useMutation({
+  const queryClient = useQueryClient();
+  const { mutate: deletePost, isPending } = useMutation({
     mutationFn: async () => {
       try {
         const res = await fetch(`/api/posts/${post._id}`, {
@@ -28,6 +30,7 @@ const Post = ({ post }) => {
     },
     onSuccess: () => {
       toast.success("Post deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
   });
 
@@ -79,7 +82,7 @@ const Post = ({ post }) => {
                 <FaTrash
                   className="cursor-pointer hover:text-red-500"
                   onClick={handleDeletePost}
-                  
+                  {...(isPending && <LoadingSpinner />)}
                 />
               </span>
             )}
