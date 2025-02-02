@@ -29,15 +29,12 @@ export const createPost = async (req, res) => {
   } catch (e) {
     console.log("Error createPost controller ", e.message);
     res.status(404).json({ Error: "Internal server error" });
-    
   }
 };
 
 export const deletePost = async (req, res) => {
-  
   try {
-    
-    const id=req.params.id;
+    const id = req.params.id;
     const post = await Post.findById(id);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
@@ -88,30 +85,54 @@ export const likeUnlikePost = async (req, res) => {
   try {
     const userId = req.user._id;
     const { id: postId } = req.params;
+
+    // Ensure postId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(postId)) {
+      return res.status(400).json({ message: "Invalid post ID" });
+    }
+
     const post = await Post.findById(postId);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-    const userLikedPost = post.likes.includes(userId);
+
+    // Convert both to string to avoid mismatch issues
+    const userLikedPost = post.likes.some(
+      (id) => id.toString() === userId.toString()
+    );
+
     if (userLikedPost) {
+      // Unlike the post
       await Post.updateOne({ _id: postId }, { $pull: { likes: userId } });
       await User.updateOne({ _id: userId }, { $pull: { likedPosts: postId } });
-      res.status(200).json({ message: "Post unliked" });
-    } else {
-      post.likes.push(userId);
-      await User.updateOne({ _id: userId }, { $push: { likedPosts: postId } });
-      await post.save();
 
-      const notification = new Notification({
-        from: userId,
-        to: post.user,
-        type: "like",
-      });
-      await notification.save();
-      res.status(200).json({ message: "Post liked" });
+      // Fetch updated likes directly from the database
+      const updatedPost = await Post.findById(postId);
+      res.status(200).json(updatedPost.likes);
+    } else {
+      // Like the post
+      await Post.updateOne({ _id: postId }, { $addToSet: { likes: userId } }); // Ensures unique values
+      await User.updateOne(
+        { _id: userId },
+        { $addToSet: { likedPosts: postId } }
+      );
+
+      // Send notification only if the post has an owner
+      if (post.user) {
+        const notification = new Notification({
+          from: userId,
+          to: post.user,
+          type: "like",
+        });
+        await notification.save();
+      }
+
+      // Fetch updated likes directly from the database
+      const updatedPost = await Post.findById(postId);
+      res.status(200).json(updatedPost.likes);
     }
   } catch (e) {
-    console.log("Error likeUnlikePost controller ", e.message);
+    console.error("Error in likeUnlikePost controller:", e.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
