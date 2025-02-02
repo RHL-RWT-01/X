@@ -29,4 +29,8 @@ export default function useFollow() {
       toast.error(error.message);
     },
   });
+  return {
+    follow,
+    isPending,
+  };
 }
