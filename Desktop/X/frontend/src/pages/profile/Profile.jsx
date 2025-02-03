@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import Posts from "../../components/common/Posts";
 import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton";
@@ -12,6 +12,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
+import { formatMemberSinceDate } from "../../utils/date";
 
 function Profile() {
   // const {data:authenticatedUser,error,isPending} = useQuery({queryKey:['authUser']})
@@ -21,21 +22,31 @@ function Profile() {
 
   const coverImgRef = useRef(null);
   const profileImgRef = useRef(null);
-
-  const isLoading = false;
   const isMyProfile = true;
+  const { username } = useParams();
+  const {
+    data: user,
+    isLoading,
+    refetch,
+    isRefetching,
+  } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(`/api/users/profile/${username}`);
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message);
+        }
+        return data;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+  });
 
-  const user = {
-    _id: "1",
-    fullName: "Rahul Rawat",
-    username: "Rhl_Rwt_01",
-    profileImg: "/avatars/boy2.png",
-    coverImg: "/cover.png",
-    bio: "Software Developer | AI Enthusiast ",
-    link: "https://github.com/RHL-RWT-01",
-    following: ["1", "2", "3","4","5","6","7","8","9"],
-    followers: ["1", "2", "3"],
-  };
+  const memberSinceDate = formatMemberSinceDate(user?.createdAt);
+
 
   const handleImgChange = (e, state) => {
     const file = e.target.files[0];
@@ -49,16 +60,20 @@ function Profile() {
     }
   };
 
+  useEffect(() => {
+    refetch();
+  }, [username, refetch]);
+
   return (
     <>
       <div className="flex-[4_4_0]  border-r border-gray-700 min-h-screen ">
         {/* HEADER */}
-        {isLoading && <ProfileHeaderSkeleton />}
-        {!isLoading && !user && (
+        {(isLoading || isRefetching) && <ProfileHeaderSkeleton />}
+        {!isLoading && !isRefetching && !user && (
           <p className="text-center text-lg mt-4">User not found</p>
         )}
         <div className="flex flex-col">
-          {!isLoading && user && (
+          {!isLoading && !isRefetching && user && (
             <>
               <div className="flex gap-10 px-4 py-2 items-center">
                 <Link to="/">
@@ -168,7 +183,7 @@ function Profile() {
                   <div className="flex gap-2 items-center">
                     <IoCalendarOutline className="w-4 h-4 text-slate-500" />
                     <span className="text-sm text-slate-500">
-                      Joined July 2021
+                      {memberSinceDate}
                     </span>
                   </div>
                 </div>
