@@ -50,12 +50,12 @@ const Post = ({ post }) => {
       }
     },
     onSuccess: () => {
-      toast.success("Post liked successfully");
-      // queryClient.invalidateQueries({ queryKey: ["posts"] });
+      // toast.success("Post liked successfully");
+      // // queryClient.invalidateQueries({ queryKey: ["posts"] });
       queryClient.setQueryData(["posts"], (oldData) => {
         return oldData.map((p) => {
           if (p._id === post._id) {
-            return { ...p, likes: [...p.likes, authenticatedUser._id] };
+            return { ...p, likes:updatedLikes };
           };
           return p;
         });
@@ -222,7 +222,7 @@ const Post = ({ post }) => {
                 className="flex gap-1 items-center group cursor-pointer"
                 onClick={handleLikePost}
               >
-                {" "}
+                
                 {isLiking && <LoadingSpinner size="sm" />}
                 {!isLiked && !isLiking && (
                   <FaRegHeart className="w-4 h-4 cursor-pointer text-slate-500 group-hover:text-pink-500" />
