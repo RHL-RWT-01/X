@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 import LoadingSpinner from "./LoadingSpinner";
 import { formatPostDate } from "../../utils/date";
 const Post = ({ post }) => {
+  const { data: authenticatedUser } = useQuery({ queryKey: ["authUser"] });
   const [comment, setComment] = useState("");
 
   const postOwner = post.user;
@@ -18,8 +19,7 @@ const Post = ({ post }) => {
   const isMyPost = authenticatedUser._id === post.user._id;
 
   const formattedDate = formatPostDate(post.createdAt);
-  
-  const { data: authenticatedUser } = useQuery({ queryKey: ["authUser"] });
+
   const queryClient = useQueryClient();
   const { mutate: deletePost, isPending: isDeleting } = useMutation({
     mutationFn: async () => {

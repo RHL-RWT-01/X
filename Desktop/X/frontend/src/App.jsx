@@ -10,6 +10,7 @@ import RightPanel from "./components/common/RightPanel";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./components/common/LoadingSpinner";
 function App() {
+  
   const { data:authenticatedUser, isLoading } = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
