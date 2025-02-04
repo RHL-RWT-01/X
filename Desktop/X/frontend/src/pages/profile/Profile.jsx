@@ -14,6 +14,7 @@ import { MdEdit } from "react-icons/md";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { formatMemberSinceDate } from "../../utils/date";
 import toast from "react-hot-toast";
+import useUpdateProfile from "../../hooks/useUpdateProfile";
 
 function Profile() {
   const queryClient = useQueryClient();
@@ -49,39 +50,7 @@ function Profile() {
     },
   });
 
-  const { mutate: updateProfile, isPending: isUpdatingProfile } = useMutation({
-    mutationFn: async () => {
-      try {
-        const res = await fetch(`/api/users/update`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            profilePicture,
-            coverPicture,
-          }),
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.error || "Something went wrong");
-        }
-        return data;
-      } catch (error) {
-        throw new Error(error.message);
-      }
-    },
-    onSuccess: () => {
-      toast.success("Profile updated successfully");
-      Promise.all([
-        queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-        queryClient.invalidateQueries({ queryKey: ["userProfile"] }),
-      ]);
-    },
-    onError: (error) => {
-      toast.error(error.message);
-    },
-  });
+ const {updateProfile,isUpdatingProfile} = useUpdateProfile({ coverPicture, profilePicture });
 
   const isMyProfile = authenticatedUser?._id === user?._id;
 
