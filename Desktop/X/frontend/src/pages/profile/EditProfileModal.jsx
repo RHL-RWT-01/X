@@ -12,7 +12,7 @@ function EditProfileModal({ authenticatedUser }) {
     currentPassword: "",
   });
 
-  const { updateProfile, isUpdatingProfile } = useUpdateProfile(formData);
+  const { updateProfile, isUpdatingProfile } = useUpdateProfile();
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,7 +48,7 @@ function EditProfileModal({ authenticatedUser }) {
             className="flex flex-col gap-4"
             onSubmit={(e) => {
               e.preventDefault();
-              updateProfile();
+              updateProfile(formData);
             }}
           >
             <div className="flex flex-wrap gap-2">

@@ -1,7 +1,5 @@
 import Post from "./Post";
-
 import PostSkeleton from "../skeletons/PostSkeleton";
-// import { POSTS } from "../../utils/db/dummy";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
@@ -32,7 +30,7 @@ function Posts({ feedType, username, userId }) {
       try {
         const res = await fetch(POSTS_ENDPOINT);
         const data = await res.json();
-        if (!res.ok) throw new Error(data.message || "Something went wrong");
+        if (!res.ok) throw new Error(data.error || "Something went wrong");
         return data;
       } catch (error) {
         throw new Error(error);

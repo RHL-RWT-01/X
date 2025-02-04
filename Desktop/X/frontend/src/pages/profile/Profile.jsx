@@ -4,20 +4,16 @@ import { Link, useParams } from "react-router-dom";
 import Posts from "../../components/common/Posts";
 import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton";
 import EditProfileModal from "./EditProfileModal";
-
-import { POSTS } from "../../utils/db/dummy";
 import useFollow from "../../hooks/useFollow";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 import { formatMemberSinceDate } from "../../utils/date";
-import toast from "react-hot-toast";
 import useUpdateProfile from "../../hooks/useUpdateProfile";
 
 function Profile() {
-  const queryClient = useQueryClient();
   const [coverPicture, setCoverImg] = useState(null);
   const [profilePicture, setProfileImg] = useState(null);
   const [feedType, setFeedType] = useState("posts");
@@ -41,7 +37,7 @@ function Profile() {
         const res = await fetch(`/api/users/profile/${username}`);
         const data = await res.json();
         if (!res.ok) {
-          throw new Error(data.message);
+          throw new Error(data.error);
         }
         return data;
       } catch (error) {
@@ -50,7 +46,7 @@ function Profile() {
     },
   });
 
- const {updateProfile,isUpdatingProfile} = useUpdateProfile({ coverPicture, profilePicture });
+ const {updateProfile,isUpdatingProfile} = useUpdateProfile();
 
   const isMyProfile = authenticatedUser?._id === user?._id;
 
@@ -91,7 +87,7 @@ function Profile() {
                 <div className="flex flex-col">
                   <p className="font-bold text-lg">{user?.fullName}</p>
                   <span className="text-sm text-slate-500">
-                    {POSTS?.length} posts
+                    {/* {user.post?.length} posts */}
                   </span>
                 </div>
               </div>
@@ -159,7 +155,11 @@ function Profile() {
                 {(coverPicture || profilePicture) && (
                   <button
                     className="btn btn-primary rounded-full btn-sm text-white px-4 ml-2"
-                    onClick={() => updateProfile()}
+                    onClick={async () =>{await updateProfile({coverPicture, profilePicture})
+                    setProfileImg(null);
+                    setCoverImg(null);   
+                    }}
+
                   >
                     {isUpdatingProfile ? "Updating..." : "Save"}
                   </button>
