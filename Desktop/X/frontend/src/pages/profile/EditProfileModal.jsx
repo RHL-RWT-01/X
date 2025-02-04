@@ -1,11 +1,9 @@
-import { QueryClient, useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-function EditProfileModal() {
-
-  
-  const queryClient = new QueryClient();
+function EditProfileModal({authenticatedUser}) {
+  const queryClient = useQueryClient();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -16,8 +14,7 @@ function EditProfileModal() {
     newPassword: "",
     currentPassword: "",
   });
-  
-  
+
   const { mutate: updateProfile, isPending: isUpdatingProfile } = useMutation({
     mutationFn: async () => {
       try {
@@ -26,9 +23,7 @@ function EditProfileModal() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            formData
-          }),
+          body: JSON.stringify(formData),
         });
         const data = await res.json();
         if (!res.ok) {
@@ -54,6 +49,19 @@ function EditProfileModal() {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  useEffect(() => {
+    if (authenticatedUser) {
+      setFormData({
+        fullName: authenticatedUser.fullName,
+        username: authenticatedUser.username,
+        email: authenticatedUser.email,
+        bio: authenticatedUser.bio,
+        link: authenticatedUser.link,
+        newPassword: "",
+        currentPassword: "",
+      });
+    }
+  }, [authenticatedUser]);
 
   return (
     <>
@@ -148,5 +156,5 @@ function EditProfileModal() {
       </dialog>
     </>
   );
-};
+}
 export default EditProfileModal;

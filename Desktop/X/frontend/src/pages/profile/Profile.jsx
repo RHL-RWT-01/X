@@ -34,7 +34,7 @@ function Profile() {
     refetch,
     isRefetching,
   } = useQuery({
-    queryKey: ["user"],
+    queryKey: ["userProfile"],
     queryFn: async () => {
       try {
         const res = await fetch(`/api/users/profile/${username}`);
@@ -58,8 +58,8 @@ function Profile() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            coverPicture,
             profilePicture,
+            coverPicture,
           }),
         });
         const data = await res.json();
@@ -146,7 +146,7 @@ function Profile() {
                   type="file"
                   hidden
                   ref={coverImgRef}
-                  onChange={(e) => handleImgChange(e, "coverPicture ")}
+                  onChange={(e) => handleImgChange(e, "coverPicture")}
                 />
                 <input
                   type="file"
@@ -176,7 +176,7 @@ function Profile() {
                 </div>
               </div>
               <div className="flex justify-end px-4 mt-5">
-                {isMyProfile && <EditProfileModal />}
+                {isMyProfile && <EditProfileModal authenticatedUser={authenticatedUser} />}
                 {!isMyProfile && (
                   <button
                     className="btn btn-outline rounded-full btn-sm"
@@ -212,12 +212,12 @@ function Profile() {
                       <>
                         <FaLink className="w-3 h-3 text-slate-500" />
                         <a
-                          href="https://github.com/RHL-RWT-01"
+                          href={user?.link}
                           target="_blank"
                           rel="noreferrer"
                           className="text-sm text-blue-500 hover:underline"
                         >
-                          github
+                          link
                         </a>
                       </>
                     </div>
