@@ -48,41 +48,40 @@ function Profile() {
       }
     },
   });
-  
-  const {mutate:updateProfile,isPending:isUpdatingProfile}=useMutation({
-    mutationFn:async()=>{
-      try{
-        const res = await fetch(`/api/users/update`,{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json'
+
+  const { mutate: updateProfile, isPending: isUpdatingProfile } = useMutation({
+    mutationFn: async () => {
+      try {
+        const res = await fetch(`/api/users/update`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-          body:JSON.stringify({
+          body: JSON.stringify({
             coverPicture,
-            profilePicture
-          })
-        })
+            profilePicture,
+          }),
+        });
         const data = await res.json();
-        if(!res.ok){
-          throw new Error(data.error || 'Something went wrong')
+        if (!res.ok) {
+          throw new Error(data.error || "Something went wrong");
         }
-        return data
-      }catch(error){
-        throw new Error(error.message)
+        return data;
+      } catch (error) {
+        throw new Error(error.message);
       }
     },
-    onSuccess:()=>{
-      toast.success('Profile updated successfully')
+    onSuccess: () => {
+      toast.success("Profile updated successfully");
       Promise.all([
-        queryClient.invalidateQueries({queryKey:['authUser']}),
-        queryClient.invalidateQueries({queryKey:['userProfile']}),
-      ])
+        queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+        queryClient.invalidateQueries({ queryKey: ["userProfile"] }),
+      ]);
     },
-    onError:(error)=>{
-      toast.error(error.message)
-    }
-
-  })
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
 
   const isMyProfile = authenticatedUser?._id === user?._id;
 
@@ -130,7 +129,7 @@ function Profile() {
               {/* COVER IMG */}
               <div className="relative group/cover">
                 <img
-                  src={coverPicture || user?.coverPicture  || "/cover.png"}
+                  src={coverPicture || user?.coverPicture || "/cover.png"}
                   className="h-52 w-full object-cover"
                   alt="cover image"
                 />
@@ -161,7 +160,7 @@ function Profile() {
                     <img
                       src={
                         profilePicture ||
-                        user?.profilePicture ||
+                        user.profilePicture ||
                         "/avatar-placeholder.png"
                       }
                     />
@@ -188,7 +187,7 @@ function Profile() {
                     {!isPending && !amIFollowing && "Follow"}
                   </button>
                 )}
-                {(coverPicture  || profilePicture ) && (
+                {(coverPicture || profilePicture) && (
                   <button
                     className="btn btn-primary rounded-full btn-sm text-white px-4 ml-2"
                     onClick={() => updateProfile()}

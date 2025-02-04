@@ -85,7 +85,9 @@ export const getSuggestions = async (req, res, next) => {
 export const updateProfile = async (req, res, next) => {
   const { fullName, email, username, currentPassword, newPassword, bio, link } =
     req.body;
-  let { profilePicture, coverPicture } = req.body;
+  let { profileImg, coverImg } = req.body;
+  let profilePicture=profileImg;
+  let coverPicture=coverImg;
   const userId = req.user._id;
 
   try {
